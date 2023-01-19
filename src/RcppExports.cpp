@@ -22,6 +22,27 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_jit_get_all_operators_names
+torch::vector::string cpp_jit_get_all_operators_names();
+RcppExport SEXP _lltm_cpp_jit_get_all_operators_names() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(cpp_jit_get_all_operators_names());
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_jit_get_operator_from_name
+torch::string cpp_jit_get_operator_from_name(torch::string x);
+RcppExport SEXP _lltm_cpp_jit_get_operator_from_name(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< torch::string >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_jit_get_operator_from_name(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // lltm_raise_exception
 void lltm_raise_exception();
 RcppExport SEXP _lltm_lltm_raise_exception() {
@@ -34,6 +55,8 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_lltm_rcpp_contrarian", (DL_FUNC) &_lltm_rcpp_contrarian, 1},
+    {"_lltm_cpp_jit_get_all_operators_names", (DL_FUNC) &_lltm_cpp_jit_get_all_operators_names, 0},
+    {"_lltm_cpp_jit_get_operator_from_name", (DL_FUNC) &_lltm_cpp_jit_get_operator_from_name, 1},
     {"_lltm_lltm_raise_exception", (DL_FUNC) &_lltm_lltm_raise_exception, 0},
     {NULL, NULL, 0}
 };
