@@ -5,6 +5,14 @@ rcpp_contrarian <- function(z) {
     .Call('_lltm_rcpp_contrarian', PACKAGE = 'lltm', z)
 }
 
+cpp_jit_get_all_operators_names <- function() {
+    .Call('_lltm_cpp_jit_get_all_operators_names', PACKAGE = 'lltm')
+}
+
+cpp_jit_get_operator_from_name <- function(x) {
+    .Call('_lltm_cpp_jit_get_operator_from_name', PACKAGE = 'lltm', x)
+}
+
 lltm_raise_exception <- function() {
     invisible(.Call('_lltm_lltm_raise_exception', PACKAGE = 'lltm'))
 }
