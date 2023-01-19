@@ -1,5 +1,4 @@
-
-#include "lltm/jit.h"
+#include "jit.h"
 
 void * _jit_get_all_operators_names () {
   try {

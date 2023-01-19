@@ -21,7 +21,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 # add their paths after `src/lltm.cpp`, the spearator is a simple
 # space.
 set(LLTM_SRC src/lltm.cpp src/exports.cpp src/jit.cpp)
-set(LLTM_HEADERS include/lltm/lltm.h include/lltm/exports.h include/lltm/jit.h)
+set(LLTM_HEADERS include/lltm/lltm.h include/lltm/exports.h)
 
 # On Windows we use module definition files to declare what are
 # the exported functions from the library. It's similar to the

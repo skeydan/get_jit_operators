@@ -1,5 +1,6 @@
 #include <Rcpp.h>
-#include <lltm/jit.h>
+#include <torch.h>
+#include "lltm/lltm.h"
 
 // [[Rcpp::export]]
 torch::vector::string cpp_jit_get_all_operators_names () {
