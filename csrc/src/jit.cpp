@@ -1,5 +1,6 @@
 #include "jit.h"
 
+
 void * _jit_get_all_operators_names () {
   try {
     auto ops = torch::jit::getAllOperators();
@@ -29,4 +30,28 @@ void * _jit_FunctionSchema_name (void* schema) {
   } LLTM_HANDLE_EXCEPTION
   return (void*) NULL;
 }
+
+
+void * _jit_get_all_operators_for (void* name) {
+  try {
+
+    auto name_ = from_raw::string(name);
+    auto op_name = c10::Symbol::fromQualString(name_);
+    // this returns const std::vector<std::shared_ptr<torch::jit::Operator>>& x
+    auto op_ptrs = torch::jit::getAllOperatorsFor(op_name);
+    std::vector<torch::jit::Operator> ops;
+    for (const std::shared_ptr<torch::jit::Operator> op_ptr : op_ptrs) {
+      // get rid of the shared_ptr, since the type pointed to will change anyway
+      // get the Operator (as data, not reference, right?)
+      auto op = *op_ptr;
+      // and push on list
+      ops.push_back(op);
+    }
+    // make whole vector raw
+    //ptr = make_raw::vector::Operator(ops);
+    return (void*) NULL;
+  } LLTM_HANDLE_EXCEPTION
+  return (void*) NULL;
+}
+
 
