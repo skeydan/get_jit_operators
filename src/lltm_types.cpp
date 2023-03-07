@@ -2,27 +2,6 @@
 #include "lltm_types.h"
 #include "exports.h"
 
-/*
-void delete_compilation_unit(void* x);
-
-void delete_compilation_unit(void* x) { lantern_CompilationUnit_delete(x); }
-
-----------------
-
-#include <R_ext/Rdynload.h>
-#include <Rcpp.h>
-#include <torch_api.h>
-
-#define REGISTER_C_CALLABLE(f) R_RegisterCCallable("torch", #f, (DL_FUNC)&f);
-
-// [[Rcpp::init]]
-void register_callables(DllInfo *dll) {
-  REGISTER_C_CALLABLE(delete_compilation_unit)
-}
-
-*/
-
-// torch_impl.h
 XPtrTorchVectorOperator::operator SEXP() const {
   auto xptr = make_xptr<XPtrTorchVectorOperator>(*this);
   xptr.attr("class") =
