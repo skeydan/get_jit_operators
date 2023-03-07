@@ -49,12 +49,12 @@ target_link_libraries(lltm "${TORCH_LIBRARIES}")
 
 set_property(TARGET lltm PROPERTY CXX_STANDARD 17)
 
-add_custom_target(lltmExport
-  COMMAND Rscript -e "torchexport::export()"
-  COMMENT "Regenerating export code."
-  VERBATIM
-)
-add_dependencies(lltm lltmExport)
+#add_custom_target(lltmExport
+#  COMMAND Rscript -e "torchexport::export()"
+#  COMMENT "Regenerating export code."
+#  VERBATIM
+#)
+#add_dependencies(lltm lltmExport)
 
 # Syncronize the headers and the def file with the Rcpp
 # interface.

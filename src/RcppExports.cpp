@@ -11,17 +11,6 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_contrarian
-torch::Tensor rcpp_contrarian(torch::Tensor z);
-RcppExport SEXP _lltm_rcpp_contrarian(SEXP zSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< torch::Tensor >::type z(zSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_contrarian(z));
-    return rcpp_result_gen;
-END_RCPP
-}
 // cpp_jit_get_all_operators_names
 torch::vector::string cpp_jit_get_all_operators_names();
 RcppExport SEXP _lltm_cpp_jit_get_all_operators_names() {
@@ -65,7 +54,6 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_lltm_rcpp_contrarian", (DL_FUNC) &_lltm_rcpp_contrarian, 1},
     {"_lltm_cpp_jit_get_all_operators_names", (DL_FUNC) &_lltm_cpp_jit_get_all_operators_names, 0},
     {"_lltm_cpp_jit_get_operator_from_name", (DL_FUNC) &_lltm_cpp_jit_get_operator_from_name, 1},
     {"_lltm_cpp_jit_get_all_operators_for", (DL_FUNC) &_lltm_cpp_jit_get_all_operators_for, 1},

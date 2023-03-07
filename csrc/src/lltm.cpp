@@ -5,11 +5,6 @@
 #include <vector>
 #include "lltm/lltm.h"
 
-// [[torch::export]]
-torch::Tensor contrarian(torch::Tensor z) {
- return -z;
-}
-
 LLTM_API int _raise_exception ()
 {
   try {

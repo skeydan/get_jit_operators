@@ -48,8 +48,8 @@ void * _jit_get_all_operators_for (void* name) {
       ops.push_back(op);
     }
     // make whole vector raw
-    //ptr = make_raw::vector::Operator(ops);
-    return (void*) NULL;
+    auto ptr = make_raw::vector::Operator(ops);
+    return ptr;
   } LLTM_HANDLE_EXCEPTION
   return (void*) NULL;
 }

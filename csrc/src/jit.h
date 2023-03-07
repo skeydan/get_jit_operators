@@ -5,6 +5,12 @@
 #define FROM_RAW(name, type) \
 type& name(void* x) { return *reinterpret_cast<type*>(x); }
 
+/*
+template <class T>
+void* make_ptr(const T& x) {
+  return (void*)std::make_unique<T>(x).release();
+}
+*/
 
 namespace make_raw {
   void* FunctionSchema (const c10::FunctionSchema& x);
@@ -19,22 +25,13 @@ namespace make_raw {
 }
 
 namespace from_raw {
-  //FROM_RAW_DECL(FunctionSchema, c10::FunctionSchema)
-  c10::FunctionSchema& FunctionSchema(void* x);
-  //FROM_RAW(FunctionSchema, c10::FunctionSchema)
-  c10::FunctionSchema& FunctionSchema(void* x) { return *reinterpret_cast<c10::FunctionSchema*>(x); }
+  FROM_RAW_DECL(FunctionSchema, c10::FunctionSchema)
+  FROM_RAW(FunctionSchema, c10::FunctionSchema)
   FROM_RAW_DECL(Operator, torch::jit::Operator)
   FROM_RAW(Operator, torch::jit::Operator)
   namespace vector {
-    //FROM_RAW_DECL(Operator, std::vector<torch::jit::Operator>)
     std::vector<torch::jit::Operator>& Operator(void* x);
-    FROM_RAW(Operator, std::vector<torch::jit::Operator>)
-    //std::vector<torch::jit::Operator>& Operator(void* x) { return *reinterpret_cast<torch::jit::Operator*>(x); }
-    /*
-     *  jit.h:32:67: error: invalid initialization of reference of type ‘std::vector<torch::jit::Operator>&’ from expression
-     *  of type ‘torch::jit::Operator’
-     *  32 |     std::vector<torch::jit::Operator>& Operator(void* x) { return *reinterpret_cast<torch::jit::Operator*>(x); }
-    */
-    }
+    std::vector<torch::jit::Operator>& Operator(void* x) { return *reinterpret_cast<std::vector<torch::jit::Operator>*>(x); }
+  }
 }
 
