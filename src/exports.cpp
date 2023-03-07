@@ -14,6 +14,11 @@ torch::string cpp_jit_get_operator_from_name (torch::string x) {
 }
 
 // [[Rcpp::export]]
-torch::jit::Operator cpp_jit_get_all_operators_for (torch::string x) {
+torch::vector::jit::Operator cpp_jit_get_all_operators_for (torch::string x) {
   return _jit_get_all_operators_for(x.get());
+}
+
+// [[Rcpp::export]]
+int cpp_jit_length_vector_operator (XPtrTorchVectorOperator x) {
+  return _jit_length_vector_operator(x.get());
 }

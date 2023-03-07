@@ -33,13 +33,24 @@ BEGIN_RCPP
 END_RCPP
 }
 // cpp_jit_get_all_operators_for
-torch::jit::Operator cpp_jit_get_all_operators_for(torch::string x);
+torch::vector::jit::Operator cpp_jit_get_all_operators_for(torch::string x);
 RcppExport SEXP _lltm_cpp_jit_get_all_operators_for(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< torch::string >::type x(xSEXP);
     rcpp_result_gen = Rcpp::wrap(cpp_jit_get_all_operators_for(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_jit_length_vector_operator
+int cpp_jit_length_vector_operator(XPtrTorchVectorOperator x);
+RcppExport SEXP _lltm_cpp_jit_length_vector_operator(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< XPtrTorchVectorOperator >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_jit_length_vector_operator(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -57,6 +68,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_lltm_cpp_jit_get_all_operators_names", (DL_FUNC) &_lltm_cpp_jit_get_all_operators_names, 0},
     {"_lltm_cpp_jit_get_operator_from_name", (DL_FUNC) &_lltm_cpp_jit_get_operator_from_name, 1},
     {"_lltm_cpp_jit_get_all_operators_for", (DL_FUNC) &_lltm_cpp_jit_get_all_operators_for, 1},
+    {"_lltm_cpp_jit_length_vector_operator", (DL_FUNC) &_lltm_cpp_jit_length_vector_operator, 1},
     {"_lltm_lltm_raise_exception", (DL_FUNC) &_lltm_lltm_raise_exception, 0},
     {NULL, NULL, 0}
 };

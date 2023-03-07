@@ -13,6 +13,10 @@ cpp_jit_get_all_operators_for <- function(x) {
     .Call('_lltm_cpp_jit_get_all_operators_for', PACKAGE = 'lltm', x)
 }
 
+cpp_jit_length_vector_operator <- function(x) {
+    .Call('_lltm_cpp_jit_length_vector_operator', PACKAGE = 'lltm', x)
+}
+
 lltm_raise_exception <- function() {
     invisible(.Call('_lltm_lltm_raise_exception', PACKAGE = 'lltm'))
 }

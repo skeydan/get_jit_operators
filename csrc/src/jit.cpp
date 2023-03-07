@@ -54,4 +54,14 @@ void * _jit_get_all_operators_for (void* name) {
   return (void*) NULL;
 }
 
+void _delete_torch_operator(void* x) {
+  auto ptr = reinterpret_cast<std::vector<torch::jit::Operator>*>(x);
+  delete ptr;
+}
+
+int _jit_length_vector_operator (void* x) {
+  auto operators = from_raw::vector::Operator(x);
+  return operators.size();
+}
+
 
