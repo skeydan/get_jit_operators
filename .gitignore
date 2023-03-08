@@ -6,4 +6,6 @@
 inst/lib
 inst/bin
 src/lltm.lib
+kdev4/
+csrc.kdev4
 
