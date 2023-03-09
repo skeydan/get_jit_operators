@@ -85,3 +85,9 @@ include(CPack)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/../inst)
 install(TARGETS lltm LIBRARY PUBLIC_HEADER DESTINATION include/lltm)
+
+add_executable(main
+main.cpp
+)
+
+target_link_libraries(main lltm)
