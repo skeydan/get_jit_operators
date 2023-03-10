@@ -1,6 +1,7 @@
 # Project name and cmake minimum requirement.
 project(lltm)
 cmake_minimum_required(VERSION 3.16)
+SET (CMAKE_BUILD_TYPE "Debug")
 
 # We find a LibTorch installation trough the torch package.
 # This is the best approach if we want to make sure we are
